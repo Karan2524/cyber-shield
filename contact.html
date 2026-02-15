@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact - CyberShield</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+<h1>CyberShield</h1>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="threats.html">Threats</a></li>
+<li><a href="prevention.html">Prevention</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+
+<section class="section">
+    <h2>Contact Command Center</h2>
+    
+    <div class="contact-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; text-align: left; max-width: 1000px; margin: auto;">
+        
+        <div class="card">
+            <h3 style="color: #00f2ff;">Security Hotline</h3>
+            <p>Direct Line: +1 (555) CYBER-SHIELD</p>
+            <p>Email: secure@cybershield.cs</p>
+            <br>
+            <h3 style="color: #00f2ff;">Location</h3>
+            <p>Digital Plaza, Sector 7-G</p>
+            <p>B.Sc Computer Science Department</p>
+        </div>
+
+        <div id="form-wrapper">
+            <form id="contactForm" onsubmit="event.preventDefault(); sendMessage();">
+                <input type="text" id="userName" placeholder="Your Name" required>
+                <input type="email" id="userEmail" placeholder="Your Email" required>
+                <textarea rows="5" id="userMsg" placeholder="Enter your encrypted message..." required></textarea>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+            
+            <div id="successMsg" style="display: none; text-align: center; padding: 40px;">
+                <h3 style="color: #00f2ff;">TRANSMISSION SUCCESSFUL</h3>
+                <p>Your message has been encrypted and sent to the CyberShield team.</p>
+                <br>
+                <button onclick="location.reload()" class="btn">New Message</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+function sendMessage() {
+    // Basic animation to simulate "sending"
+    const btn = document.querySelector('.btn');
+    btn.innerText = "ENCRYPTING...";
+    
+    setTimeout(() => {
+        document.getElementById('contactForm').style.display = 'none';
+        document.getElementById('successMsg').style.display = 'block';
+    }, 1500);
+}
+</script>
+<footer>
+<p>CyberShield | B.Sc Computer Science Mini Project</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CyberShield - Deep Dive</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+    <h1>CyberShield</h1>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="threats.html">Threats</a></li>
+        <li><a href="prevention.html">Prevention</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+
+<section class="section">
+    <div id="content-area">
+        <h2 id="detail-title" style="text-transform: uppercase;">Loading...</h2>
+        <div class="card" style="text-align: left; max-width: 900px; margin: 40px auto; line-height: 1.8;">
+            <p id="detail-description" style="font-size: 1.1rem; color: #e0e0e0;"></p>
+            <hr style="border: 0; border-top: 1px solid rgba(0, 242, 255, 0.3); margin: 25px 0;">
+            <h3 style="color: #00f2ff; margin-bottom: 10px;">Technical Impact & Prevention</h3>
+            <p id="detail-impact" style="color: #00f2ff;"></p>
+        </div>
+        <a href="javascript:history.back()" class="btn">Return to List</a>
+    </div>
+</section>
+
+<script>
+    const cyberData = {
+        // --- THREATS ---
+        "phishing": {
+            title: "Phishing Attack Analysis",
+            desc: "Phishing is a fraudulent attempt to obtain sensitive data such as usernames and passwords through fake emails and websites. Attackers use social engineering to create a sense of urgency, often mimicking banks or government agencies to trick users into clicking malicious links.",
+            impact: "Primary cause of credential theft and initial access for larger network breaches. Prevention involves email filtering and user awareness training."
+        },
+        "malware": {
+            title: "Malware & Malicious Code",
+            desc: "Malware includes viruses, worms, and trojans designed to damage or gain unauthorized access to systems. These programs can self-replicate across networks or hide within legitimate software to spy on user activity.",
+            impact: "Can lead to total system failure, data deletion, or unauthorized surveillance of sensitive information."
+        },
+        "ransomware": {
+            title: "Ransomware Operations",
+            desc: "Ransomware encrypts user data and demands payment for restoration. Modern ransomware often involves 'double extortion,' where data is both encrypted and stolen to be leaked publicly if the ransom isn't paid.",
+            impact: "Massive operational downtime and financial loss. Recovery is often impossible without verified offline backups."
+        },
+        "sqli": {
+            title: "SQL Injection (SQLi)",
+            desc: "A vulnerability where an attacker interferes with the queries that an application makes to its database. It allows attackers to view data they are not normally able to retrieve.",
+            impact: "Complete database exposure, including user passwords and personal records. Prevented by using prepared statements and input validation."
+        },
+        "ddos": {
+            title: "Distributed Denial of Service",
+            desc: "DDoS attempts to crash a website or service by overwhelming it with a flood of internet traffic from multiple sources (botnets).",
+            impact: "Loss of service availability for legitimate users, leading to reputation damage and financial loss."
+        },
+        // --- PREVENTION ---
+        "passwords": {
+            title: "Advanced Password Strategy",
+            desc: "Strong passwords use a mix of uppercase, lowercase, numbers, and symbols while avoiding personal information. Length is the most critical factor in resisting brute-force attacks.",
+            impact: "A 12+ character complex password provides the first line of defense against automated cracking tools."
+        },
+        "2fa": {
+            title: "Two-Factor Authentication (2FA)",
+            desc: "Add an extra security layer using OTP or authentication apps. This ensures that even if a password is compromised, the account remains inaccessible without the second physical token.",
+            impact: "Blocks 99% of bulk phishing attacks and automated bot attacks."
+        },
+        "updates": {
+            title: "Critical System Updates",
+            desc: "Regular software updates fix vulnerabilities and security flaws discovered by developers. Many attacks exploit 'known' bugs that already have patches available.",
+            impact: "Reduces the attack surface of your computer or server significantly."
+        },
+        "vpn": {
+            title: "Virtual Private Networks",
+            desc: "VPNs create an encrypted tunnel for your data, protecting your online identity and securing your connection on public networks.",
+            impact: "Essential for remote work and preventing 'Man-in-the-Middle' attacks on public Wi-Fi."
+        }
+    };
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const key = urlParams.get('id');
+
+    if (key && cyberData[key]) {
+        document.getElementById('detail-title').innerText = cyberData[key].title;
+        document.getElementById('detail-description').innerText = cyberData[key].desc;
+        document.getElementById('detail-impact').innerText = cyberData[key].impact;
+    } else {
+        document.getElementById('detail-title').innerText = "Topic Not Found";
+    }
+</script>
+
+<footer>
+    <p>© 2026 CyberShield | B.Sc CS Mini Project</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,428 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Orbitron', sans-serif;
+}
+
+body{
+    color:white;
+    background:linear-gradient(-45deg,#0f0f1a,#001f3f,#003366,#000814);
+    background-size:400% 400%;
+    animation:gradientMove 10s ease infinite;
+}
+
+@keyframes gradientMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+/* Navbar */
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 60px;
+    background:rgba(0,0,0,0.6);
+    backdrop-filter:blur(10px);
+}
+
+nav h1{
+    color:#00f2ff;
+    text-shadow:0 0 15px #00f2ff;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:25px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+    color:#00f2ff;
+    text-shadow:0 0 10px #00f2ff;
+}
+
+/* Hero */
+.hero{
+    text-align:center;
+    padding:120px 20px;
+}
+
+.hero h2{
+    font-size:3rem;
+    margin-bottom:20px;
+    color:#00f2ff;
+    text-shadow:0 0 20px #00f2ff;
+}
+
+.hero p{
+    font-size:1.2rem;
+    margin-bottom:30px;
+}
+
+.btn{
+    padding:12px 30px;
+    border:2px solid #00f2ff;
+    color:#00f2ff;
+    text-decoration:none;
+    border-radius:30px;
+    transition:0.4s;
+}
+
+.btn:hover{
+    background:#00f2ff;
+    color:black;
+    box-shadow:0 0 20px #00f2ff;
+}
+
+/* Sections */
+.section{
+    padding:80px 60px;
+    text-align:center;
+}
+
+.section h2{
+    margin-bottom:30px;
+    color:#00f2ff;
+    text-shadow:0 0 15px #00f2ff;
+}
+
+/* Cards */
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.card{
+    padding:30px;
+    background:rgba(255,255,255,0.05);
+    border-radius:15px;
+    backdrop-filter:blur(10px);
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 20px #00f2ff;
+}
+
+/* Contact Form */
+form{
+    max-width:500px;
+    margin:auto;
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+input, textarea{
+    padding:12px;
+    border:none;
+    border-radius:8px;
+}
+
+input:focus, textarea:focus{
+    outline:2px solid #00f2ff;
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    background:rgba(0,0,0,0.6);
+    margin-top:50px;
+}
+/* ===== Stats Section ===== */
+
+.stats {
+    display:flex;
+    justify-content:space-around;
+    flex-wrap:wrap;
+    margin-top:40px;
+}
+
+.stat-box {
+    width:220px;
+    padding:20px;
+    background:rgba(255,255,255,0.05);
+    border-radius:15px;
+    text-align:center;
+    backdrop-filter:blur(10px);
+    transition:0.4s;
+}
+
+.stat-box:hover{
+    box-shadow:0 0 20px #00f2ff;
+    transform:scale(1.05);
+}
+
+.stat-number{
+    font-size:2rem;
+    color:#00f2ff;
+    text-shadow:0 0 10px #00f2ff;
+}
+
+/* ===== Progress Bars ===== */
+
+.progress-container{
+    max-width:700px;
+    margin:30px auto;
+}
+
+.progress{
+    margin-bottom:20px;
+}
+
+.progress label{
+    display:block;
+    margin-bottom:5px;
+}
+
+.bar{
+    height:15px;
+    background:rgba(255,255,255,0.1);
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.bar-fill{
+    height:100%;
+    background:#00f2ff;
+    width:0;
+    animation:fillBar 2s forwards;
+}
+
+@keyframes fillBar{
+    from{width:0;}
+}
+
+/* ===== Accordion (Click Expand) ===== */
+
+.accordion{
+    max-width:800px;
+    margin:40px auto;
+}
+
+.accordion input{
+    display:none;
+}
+
+.accordion label{
+    display:block;
+    padding:15px;
+    background:rgba(255,255,255,0.05);
+    margin-bottom:5px;
+    cursor:pointer;
+    border-radius:8px;
+    transition:0.3s;
+}
+
+.accordion label:hover{
+    background:rgba(0,242,255,0.1);
+}
+
+.content{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height 0.5s ease;
+    background:rgba(255,255,255,0.03);
+    padding:0 15px;
+    border-radius:8px;
+}
+
+.accordion input:checked ~ .content{
+    max-height:200px;
+    padding:15px;
+}
+/* Password Validator Styles */
+.pass-checker {
+    width: 100%;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(0, 242, 255, 0.3);
+    border-radius: 8px;
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    margin-bottom: 15px;
+}
+
+.pass-checker:focus {
+    outline: none;
+    border-color: #00f2ff;
+    box-shadow: 0 0 10px #00f2ff;
+}
+
+/* Logic: Default is red/incomplete */
+.req-item {
+    color: #ff4d4d;
+    font-size: 0.8rem;
+    margin: 5px 0;
+    transition: 0.3s;
+}
+
+.status-indicator::before {
+    content: "SYSTEM STATUS: UNSECURE";
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+    color: #ff4d4d;
+}
+
+/* Logic: When input matches the pattern, change to cyan */
+.pass-checker:valid + .requirements .req-item {
+    color: #00f2ff;
+    text-shadow: 0 0 5px #00f2ff;
+}
+
+.pass-checker:valid + .requirements .status-indicator::before {
+    content: "SYSTEM STATUS: SECURE";
+    color: #00f2ff;
+}
+/* --- High-Tech Scanner Animation --- */
+.scanner-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.scanner-circle {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px solid rgba(0, 242, 255, 0.2);
+    border-radius: 50%;
+    box-shadow: inset 0 0 50px rgba(0, 242, 255, 0.1);
+}
+
+.scanner-line {
+    position: absolute;
+    width: 50%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #00f2ff);
+    top: 50%;
+    left: 50%;
+    transform-origin: left;
+    animation: radar-sweep 4s linear infinite;
+    box-shadow: 0 0 15px #00f2ff;
+}
+
+@keyframes radar-sweep {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.shield-icon {
+    font-size: 5rem;
+    filter: drop-shadow(0 0 20px #00f2ff);
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* Floating Data Nodes */
+.node {
+    position: absolute;
+    font-size: 0.7rem;
+    color: #00f2ff;
+    opacity: 0.6;
+    white-space: nowrap;
+}
+
+.n1 { top: 10%; right: -20%; animation: blink 1s infinite; }
+.n2 { bottom: 20%; left: -30%; animation: blink 1.5s infinite; }
+.n3 { top: 50%; left: -40%; animation: blink 2s infinite; }
+
+@keyframes blink {
+    50% { opacity: 0.1; }
+}
+
+/* Glitch Text Effect */
+.glitch {
+    position: relative;
+    font-size: 3rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px #ff4d4d, -2px -2px #00f2ff;
+}
+/* --- Cyber Flowchart CSS --- */
+.flow-container {
+    margin: 60px auto;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 20px;
+    border: 1px solid rgba(0, 242, 255, 0.1);
+}
+
+.flow-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0; /* Connectors fill the gap */
+}
+
+.flow-node {
+    padding: 20px;
+    border: 2px solid #00f2ff;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    min-width: 150px;
+    box-shadow: 0 0 15px rgba(0, 242, 255, 0.2);
+    position: relative;
+    z-index: 2;
+}
+
+/* Node Variations */
+.flow-node.threat { border-color: #ff4d4d; color: #ff4d4d; box-shadow: 0 0 15px rgba(255, 77, 77, 0.3); }
+.flow-node.filter { border-style: dashed; }
+.flow-node.secure { border-color: #00f2ff; color: #00f2ff; }
+
+/* The Animated Connector Lines */
+.flow-connector {
+    width: 80px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    position: relative;
+}
+
+.flow-connector::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    height: 100%;
+    width: 0;
+    background: #00f2ff;
+    box-shadow: 0 0 10px #00f2ff;
+    animation: flow-path 3s infinite;
+}
+
+@keyframes flow-path {
+    0% { width: 0; left: 0; }
+    50% { width: 100%; left: 0; }
+    100% { width: 0; left: 100%; }
+}
+
+/* Hover Effect to 'Shock' the user */
+.flow-node:hover {
+    transform: scale(1.1);
+    background: #00f2ff;
+    color: black;
+    box-shadow: 0 0 30px #00f2ff;
+    cursor: pointer;
+}
