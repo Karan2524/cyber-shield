@@ -74,6 +74,54 @@
         </div>
     </div>
 </div>
+    <div class="card" style="max-width: 800px; margin: 40px auto; border-left: 5px solid #ff4d4d;">
+    <h3 style="color: #ff4d4d;">[ EMERGENCY RESPONSE PROTOCOL ]</h3>
+    <p style="margin: 15px 0; color: #aaa;">Select a situation to receive immediate neutralization steps:</p>
+
+    <div id="protocol-buttons" style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+        <button class="btn" onclick="showProtocol('link')">I Clicked a Suspect Link</button>
+        <button class="btn" onclick="showProtocol('password')">My Password was Leaked</button>
+        <button class="btn" onclick="showProtocol('virus')">My PC is Acting Strange</button>
+    </div>
+
+    <div id="protocol-display" style="margin-top: 30px; display: none; background: rgba(0,0,0,0.3); padding: 20px; border: 1px dashed #00f2ff;">
+        <h4 id="protocol-title" style="color: #00f2ff;"></h4>
+        <ul id="protocol-list" style="text-align: left; margin-top: 15px; line-height: 2;"></ul>
+    </div>
+</div>
+
+<script>
+function showProtocol(type) {
+    const display = document.getElementById('protocol-display');
+    const title = document.getElementById('protocol-title');
+    const list = document.getElementById('protocol-list');
+    
+    display.style.display = 'block';
+    list.innerHTML = ''; // Clear old steps
+
+    const protocols = {
+        'link': {
+            title: "LINK EXPOSURE DETECTED",
+            steps: ["Disconnect Wi-Fi immediately", "Clear browser cache and cookies", "Do not enter any sensitive data", "Run a full system antivirus scan"]
+        },
+        'password': {
+            title: "CREDENTIAL BREACH DETECTED",
+            steps: ["Change the password for THAT account", "Change passwords for any shared accounts", "Enable 2FA (Multi-factor) immediately", "Check bank statements for unauthorized activity"]
+        },
+        'virus': {
+            title: "SYSTEM COMPROMISE SUSPECTED",
+            steps: ["Boot into 'Safe Mode'", "Check Task Manager for unknown processes", "Update and run your Anti-Malware software", "Backup critical files to an external drive (offline)"]
+        }
+    };
+
+    title.innerText = protocols[type].title;
+    protocols[type].steps.forEach(step => {
+        let li = document.createElement('li');
+        li.innerText = ">> " + step;
+        list.appendChild(li);
+    });
+}
+</script>
 
 </section>
 <footer>
@@ -83,3 +131,4 @@
 </body>
 
 </html>
+
